@@ -1,0 +1,60 @@
+
+input[type=text], select {
+    width: 100%;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=selet], select {
+    width: 100%;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.menu{
+    display: flex;
+    width: 100%;
+}
+hr { border-left: 0; }
+
+hr.s1{
+border-top: 2px solid rgb(255, 166, 0);
+}
+.form{
+    flex: 1;
+    padding: 10px 10px;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 30%;
+}
+.box{
+    text-align: center;
+    margin: 15px;
+    border: solid 1px black;
+    border-radius: 12px;
+    padding: 15px;
+    background-color: white;
+    margin: 0 200px;
+    box-shadow: 10px 10px grey;
+    
+}
+.button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    
+}

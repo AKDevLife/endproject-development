@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+  color: #2E2E30;
+}
+body {
+  background-image: url(https://images.unsplash.com/photo-1562408590-e32931084e23?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxlY3Ryb25pY3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.952);
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #2E2E30;
+}
+
+.container a,p {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  display: inline;
+}
+.container a{
+  color: rgba(0, 0, 255, 0.507);
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background-color: #2E2E30;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+  color: aliceblue;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.text {
+  margin-top: 30px;
+}
+
+.form-control {
+  position: relative;
+  margin: 20px 0 20px;
+ 
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px rgb(15, 15, 15) solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0 15px 0;
+  font-size: 15px;
+  color: rgb(10, 10, 10);
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: rgb(0, 0, 0);
+}
+
+.form-control label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  pointer-events: none;
+}
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: rgb(0, 0, 0);
+  transform: translateY(-30px);
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 640px)  {
+  .container {
+    width: 70vw;
+    padding: 10px 40px;
+    border-radius: 10px;
+    justify-content: center;
+  }
+  .container h1 {
+    margin-bottom: 0;
+  }
+  .form{
+    margin-top: 0;
+  }
+  .form-control {
+    position: relative;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .form-control input {
+    font-size: 13px;
+  }
+  .form-control label span {
+    font-size: 16px;
+  }
+  .btn{
+    padding: 10px 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+  .container p {
+    display: inline;
+    font-size: 12px;
+  }
+  .container a {
+    display: block;
+    font-size: 15px;
+  }
+}

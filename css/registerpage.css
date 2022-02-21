@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Trirong:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trirong', serif;
+}
+.p1{
+    float: left;
+    background-size: cover;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+header{
+    background-color: #1CAC78;
+    color: whitesmoke;
+    padding: 15px 0;
+    font-size: 20px;
+    border-bottom-style: solid 5px black;
+}
+.menu{
+    display: flex;
+    width: 100%;
+}
+
+ul{
+    list-style-type: none;
+    text-align: center;  
+}
+aside ul li a{
+    padding: 10px 0;
+    color: whitesmoke;
+    text-decoration: none;
+    display: block;
+}
+aside ul li a:hover{
+    background-color: rgb(238, 136, 68);
+}
+.pic{
+    border-radius: 12px;
+    margin: 20px;
+}
+.box{
+    text-align: center;
+    margin: 15px;
+    border: solid 1px black;
+    border-radius: 12px;
+    padding: 15px;
+    background-color: white;
+    margin: 0 200px;
+    box-shadow: 10px 10px grey;
+}
+.form{
+    flex: 1;
+    padding: 10px 10px;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 30%;
+    column-count: auto;
+}
+input[type=text], select {
+    width: 50%;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=email], select {
+    width: 50%;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=file], select {
+    width: 50%;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    width: 200px;
+}
+hr { border-left: 0; }
+
+hr.s1{
+border-top: 2px solid rgb(255, 166, 0);
+}
+
+.dropbtn {
+    background-color: #E2E2E2; 
+  color: rgb(0, 0, 0);
+  padding: 12px;
+  border: none;
+  width: 180px;
+  text-align: left;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  color: blanchedalmond;}
+
+  .dropdown-content a {
+    color: rgb(238, 238, 238);
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    width: 180px;
+  }
+
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn { background-color: #094B3D;
+    color: blanchedalmond;}

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart Year</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/a_chart.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+
+    <?php include_once 'function\function.php';
+            date_default_timezone_set("Asia/Bangkok");
+            $xlables =[]; 
+            $ylables =[];
+            $c_fetch = new DB_con();
+            $eq_fetch = new DB_con();
+            $chart = $c_fetch->eq_borrow_CMY_fetch(4,date("Y"));
+            $x=0;
+                foreach($chart as $c)
+                 {
+                   $x++;
+                   $eq_id = $c['eq_id'];
+                   $eq = $eq_fetch-> eq_id_fetch($eq_id);
+                   $row = mysqli_fetch_array($eq);
+                   $xlables[$x] = $row['eq_name'];
+                   $ylables[$x] = $c['eq_number'];
+                 }
+    ?>
+    <script type="text/javascript">
+        window.onload = function () {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [<?php for($a=1;$a<=$x;$a++)
+            {echo $xlables[$a].',';
+            }?>],
+            datasets: [{
+                label: '# Number of equipment',
+                data: [<?php for($a=1;$a<=$x;$a++)
+            {echo $ylables[$a].',';
+            }?>],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    grace: '5%',
+                    beginAtZero: true
+                }
+
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'อุปกรณ์ที่ถูกยืมมากที่สุดในปี <?php echo date("Y") ?>'
+                }
+        }
+        }
+        });
+        var image = myChart.toBase64Image();
+        console.log(image);
+        document.getElementById('btn-download').onclick = function() {
+        // Trigger the download
+        var a = document.createElement('a');
+        a.href = myChart.toBase64Image();
+        a.download = 'อุปกรณ์ที่ถูกยืมมากที่สุดในปี <?php echo date("Y") ?>.png';
+        a.click();
+        }}
+    </script>
+</head>
+<body style="background-color: #91AFA8">
+    <div class="container-fluid">
+        <?php
+            include "item/pageheader.php";
+            
+           ?>
+        <div class="main">
+            <aside>
+                <?php
+                    include "item/menubar_a.php";
+                ?>
+            </aside>
+
+            <div class="form">
+                <a href="a_chart_m.php" class="btn">เดือน</a>
+                <a href="a_chart_y.php" class="btn">ปี</a>
+                <hr class="s1">
+
+                <form action="Chart_Max_Y.php" method="post" enctype="multipart/form-data">
+                <select name="yearpicker" id="yearpicker"></select>
+                <script type="text/javascript">
+                let startYear = 2019;
+                let endYear = new Date().getFullYear();
+                for (i = endYear; i > startYear; i--)
+                {
+                $('#yearpicker').append($('<option />').val(i).html(i));
+                }
+                </script>
+                    <input type="submit" value="ยืนยัน" class="button">
+                </form>
+                <canvas id="myChart" style= "width: 87%; height: 618px; margin:0 auto"></canvas>
+                <button id="btn-download" class="btn-download" >Download</button>    
+            </div>
+        </div>
+    </div>
+          
+</body>
+</html>

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Trirong:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trirong', serif;
+}
+.container{
+    margin: 0 auto;
+    width: 100%;
+}
+header{
+    background-color: #1C594C;
+    color: whitesmoke;
+    padding: 10px 0;
+    font-size: 20px;
+}
+.p1{
+    float: left;
+    background-size: cover;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.main{
+    display: flex;  
+}
+.hTH{
+    color: #D9A472;
+    letter-spacing: 5px;
+    font-weight: bolder;
+}
+.hEN{
+    text-shadow: 0 0 0.2em rgb(0, 0, 0);
+    letter-spacing: 3px;
+    font-weight: bolder;
+}
+aside{
+    width: 200px;
+    align-self: stretch;
+    background-color: #E2E2E2; 
+    border: 1px solid black;
+    border-top: none;
+}
+aside ul{
+    list-style-type: none;
+    padding: 1px;
+}
+aside ul li{
+    padding-left: 12px;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+aside ul li a{
+    padding: 10px 0;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: flex;
+}
+aside ul li:hover,aside ul li a:hover{
+    background-color: #094B3D;
+    color: blanchedalmond;
+}
+main{
+    flex: 1;
+    padding: 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+}

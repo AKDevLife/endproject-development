@@ -115,6 +115,20 @@ class DB_con
         return $result;
     }
 
+//? ******************************  ฟังก์ชัน ค้นหาอุปกรณ์ ******************************************
+    //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ตามชนิด
+    public function eq_t_fetch($typeid)
+    {
+        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE $typeid=a.eq_typeid AND $typeid=b.eq_typeid");
+        return $result;
+    }
+    //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ตามชื่อ
+    public function eq_s_fetch($n)
+    {
+        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE eq_name LIKE '%$n%'AND a.eq_typeid=b.eq_typeid");
+        return $result;
+    }
+
 //? ******************************  ฟังก์ชั่น อ่านข้อมูลตารางการยืม ******************************************
     //ฟังก์ชั่นการอ่านข้อมูลตาราง eq_borrow ตามรหัสนักศึกษา และเรียง Status จากน้อยไปมาก 
     public function eq_borrow_suser_fetch($s_user)

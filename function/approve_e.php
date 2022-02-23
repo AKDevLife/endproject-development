@@ -8,7 +8,7 @@
 if ($_GET['ap'] == '1') {
     // ใช้ในการส่งอีเมล
     $_SESSION['s_email'] = $_GET['se'];
-    $sql = $approve->borrow_status_1_4($borrow_id);
+    $sql = $approve->borrow_status_2_4($borrow_id);
     if ($sql) {
         ?>
             <script>
@@ -30,7 +30,7 @@ if ($_GET['ap'] == '1') {
 // ถ้าapเท่ากับ2 แสดงว่ากดไม่ผ่าน ให้เปล่ยนค่าStatusเป็น7
 if ($_GET['ap'] == '2') {
     $_SESSION['s_email'] = $_GET['se'];
-    $sql = $noapprove->borrow_status_1_5($borrow_id);
+    $sql = $noapprove->borrow_status_2_5($borrow_id);
     if ($sql) {
         ?>
             <script>

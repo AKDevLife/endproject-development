@@ -154,6 +154,12 @@ class DB_con
         $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '2' GROUP BY borrow_id ORDER BY id");
         return $result;
     }
+    //ฟังก์ชั่นอ่านข้อมูลตารางการยืมโดยแสดงเฉพาะที่สถานะเป็น 4 คืออ.หัวหน้า ผ่าน
+    public function eq_borrow_4_fetch()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '4' GROUP BY borrow_id ORDER BY id");
+        return $result;
+    }
 
 //? ******************************  ฟังก์ชั่น อ่านข้อมูลตาราง อ.ที่ปรึกษา ***************************************
     //ฟังก์ชั่นการอ่านข้อมูลตาราง tb_professor ทั้งหมด
@@ -265,7 +271,7 @@ class DB_con
         return $result;
     }
     //ฟังก์ชั่นอัปเดตสเตตัสการยืม อ.หัวหน้าอนุมัติ ผ่าน
-    public function borrow_status_1_4($borrow_id)
+    public function borrow_status_2_4($borrow_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow SET
             Status = '4'
@@ -273,11 +279,19 @@ class DB_con
         return $result;
     }
     //ฟังก์ชั่นอัปเดตสเตตัสการยืม อ.หัวหน้าอนุมัติ ไม่ผ่าน
-    public function borrow_status_1_5($borrow_id)
+    public function borrow_status_2_5($borrow_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow SET
             Status = '5'
             WHERE borrow_id = '$borrow_id' AND Status = '2'");
+        return $result;
+    }
+    //ฟังก์ชั่นอัปเดตสเตตัสการยืม มารับอุปกรณ์เรียบร้อย
+    public function borrow_status_4_6($borrow_id)
+    {
+        $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow SET
+            Status = '6'
+            WHERE borrow_id = '$borrow_id' AND Status = '4'");
         return $result;
     }
 

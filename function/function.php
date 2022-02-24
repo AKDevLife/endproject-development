@@ -142,6 +142,12 @@ class DB_con
         $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE borrow_id = '$borrow_id' ");
         return $result;
     }
+    //ฟังก์ชั่นการอ่านวันที่คืนอุปกรณ์
+    public function setback($borrow_id)
+    {
+        $result = mysqli_query($this->dbcon, "SELECT ToDate FROM tb_eq_borrow WHERE borrow_id = '$borrow_id' GROUP BY borrow_id");
+        return $result;
+    }
     //ฟังก์ชั่นอ่านตารางขอยืมตามรหัสนักศึกษาที่ Status 1 คืออยุ่ระหว่างดำเนินการ
     public function eq_borrow_1_fetch($s_user)
     {
@@ -158,6 +164,12 @@ class DB_con
     public function eq_borrow_4_fetch()
     {
         $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '4' GROUP BY borrow_id ORDER BY id");
+        return $result;
+    }
+    //ฟังก์ชั่นอ่านข้อมูลตารางการยืมโดยแสดงเฉพาะที่สถานะเป็น 4 คืออ.หัวหน้า ผ่าน
+    public function eq_borrow_6_fetch()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '6' GROUP BY borrow_id ORDER BY id");
         return $result;
     }
 
@@ -315,6 +327,12 @@ class DB_con
     {
         $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '$Status' AND DATE_FORMAT(FromDate,'%Y') = '$Y' GROUP BY eq_id ORDER BY eq_number DESC LIMIT 6");
         return $result;
+    }
+    // ฟังก์ชันการหาผลต่างของวัน
+    public function duration_day($schedule,$today){
+        $remain=intval(strtotime($schedule)-strtotime($today));
+        $day=floor($remain/86400);
+        return $day;
     }
 
 }

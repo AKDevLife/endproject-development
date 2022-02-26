@@ -133,7 +133,7 @@ class DB_con
     //ฟังก์ชั่นการอ่านข้อมูลตาราง eq_borrow ตามรหัสนักศึกษา และเรียง Status จากน้อยไปมาก 
     public function eq_borrow_suser_fetch($s_user)
     {
-        $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE s_user = '$s_user' GROUP BY borrow_id ORDER BY Status");
+        $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE s_user = '$s_user' GROUP BY borrow_id ORDER BY id DESC");
         return $result;
     }
     //ฟังก์ชั่นการอ่านข้อมูลตาราง eq_borrow ตามรหัสการยืม
@@ -185,7 +185,7 @@ class DB_con
     //ฟังก์ชันหารหัสนักศึกษาตามอ.ที่ปรึกษา
     public function s_user_p_id_fetch($p_id)
     {
-        $result = mysqli_query($this->dbcon, "SELECT s_user, s_firstname, s_lastname FROM tb_student WHERE p_id = '$p_id'");
+        $result = mysqli_query($this->dbcon, "SELECT s_user, s_firstname, s_lastname, s_email FROM tb_student WHERE p_id = '$p_id'");
         return $result;
     }
     //ฟังก์ชันหาชื่อนักศึกษาตามรหัสนักศึกษา

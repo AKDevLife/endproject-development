@@ -109,8 +109,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td><a class="rb" href="function/approve_p.php?ap=2&borrow_id=<?php echo $sql2['borrow_id']; ?>">ไม่ผ่าน</a></td>
-                                    <!-- //TODO: เพิ่มการส่ง s_user ไปด้วย -->
+                                    <td><a class="rb" href="function/approve_p.php?ap=2&borrow_id=<?php echo $sql2['borrow_id']; ?>&se=<?php echo $sql1['s_email']; ?>">ไม่ผ่าน</a></td>
                                     <td><a class="gb" href="function/approve_p.php?ap=1&borrow_id=<?php echo $sql2['borrow_id']; ?>&sf=<?php echo $sql1['s_firstname']; ?>&sl=<?php echo $sql1['s_lastname']; ?>&su=<?php echo $sql1['s_user']; ?>">ผ่าน</a></td>
                                 </tr>
                             <?php

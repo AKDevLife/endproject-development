@@ -23,6 +23,7 @@
     $_SESSION['s_firstname'] = $_POST['s_firstname'];
     $_SESSION['s_lastname'] = $_POST['s_lastname'];
     $_SESSION['p_email'] = $_POST['p_email'];
+    $_SESSION['s_user'] = $_POST['s_user'];
 
     // เช็คค่า eq_numberทั้งหมดที่ส่งมาก่อนจะไปทำการเพิ่มและอัปเดตข้อมูล
     for($c=1;$c<=$loopnum;$c++)

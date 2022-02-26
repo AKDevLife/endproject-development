@@ -109,7 +109,7 @@
                                         </div>
                                     </td>
                                     <!-- เมื่อกดปุ่มไม่ผ่านทำการส่ง 0.ค่าตรวจสอบap=2 1.รหัสการยืม -->
-                                    <td><a class="rb" href="function/approve_e.php?ap=2&borrow_id=<?php echo $sql1['borrow_id']; ?>">ไม่ผ่าน</a></td>
+                                    <td><a class="rb" href="function/approve_e.php?ap=2&borrow_id=<?php echo $sql1['borrow_id']; ?>&se=<?php echo $sql2['s_email']; ?>">ไม่ผ่าน</a></td>
                                     <!-- เมื่อกดปุ่มผ่านทำการส่ง 0.ค่าตรวจสอบap=1 1.รหัสการยืม 2.อีเมลนศ. -->
                                     <td><a class="gb" href="function/approve_e.php?ap=1&borrow_id=<?php echo $sql1['borrow_id']; ?>&se=<?php echo $sql2['s_email']; ?>">ผ่าน</a></td>
                                 </tr>

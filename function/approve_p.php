@@ -33,6 +33,7 @@ if ($_GET['ap'] == '1') {
 }
 // ถ้าapเท่ากับ2 แสดงว่ากดไม่ผ่าน ให้เปล่ยนค่าStatusเป็น5
 if ($_GET['ap'] == '2') {
+    $_SESSION['s_email'] = $_GET['se'];
     $sql = $noapprove->borrow_status_1_3($borrow_id);
     if ($sql) {
         ?>

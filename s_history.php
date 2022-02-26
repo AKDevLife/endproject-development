@@ -48,7 +48,7 @@
                                 $eq1 = new DB_con();
                                 $eq2 = new DB_con();
 
-                                $eq_p_borrow = $eq->eq_borrow_suser_fetch($s_user); //! แก้ชื่อ ให้ตรงกับในฟังก์ชัน
+                                $eq_p_borrow = $eq->eq_borrow_suser_fetch($s_user);
                                 $i = 1;
                                 while ($sql1 = mysqli_fetch_array($eq_p_borrow)) {
                                 ?>
@@ -75,7 +75,7 @@
                                                             <tbody>
                                                                 <?php
                                                                     $borrow_id = $sql1['borrow_id'];
-                                                                    $suser = $eq2->eq_borrow_id_fetch($borrow_id); //! แก้ชื่อ ลบ p ออก
+                                                                    $suser = $eq2->eq_borrow_id_fetch($borrow_id);
                                                                     while ($sql2 = mysqli_fetch_array($suser)) {
                                                                         ?>
                                                                         <tr>
@@ -108,7 +108,7 @@
                                         <?php if ($sql1['Status'] == 1 || $sql1['Status'] == 2) { ?>
                                             <td>
                                                 <div class="bb">
-                                                    กำลังดำเนินการ
+                                                    รอการอนุมัติ
                                                 </div>
                                             </td>
                                             <?php }
@@ -119,10 +119,24 @@
                                                 </div>
                                             </td>
                                             <?php }  
-                                        else if ($sql1['Status'] == 4) { ?>
+                                        if ($sql1['Status'] == 4) { ?>
                                             <td>
                                                 <div class="gb">
                                                     ได้รับการอนุมัติ
+                                                </div>
+                                            </td>
+                                            <?php }
+                                        if ($sql1['Status'] == 6) { ?>
+                                            <td>
+                                                <div class="bb">
+                                                    กำลังยืมอุปกรณ์
+                                                </div>
+                                            </td>
+                                            <?php }
+                                        if ($sql1['Status'] == 8) { ?>
+                                            <td>
+                                                <div class="gb">
+                                                    คืนอุปกรณ์เรียบร้อย
                                                 </div>
                                             </td>
                                             <?php } ?>

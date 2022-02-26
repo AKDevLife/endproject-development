@@ -57,6 +57,7 @@ if ($act == 'remove' && !empty($eq_id)) {
                                 <input type="text" name="s_firstname" value="<?php echo $row2['s_firstname']; ?>">
                                 <input type="text" name="s_lastname" value="<?php echo $row2['s_lastname']; ?>">
                                 <input type="text" name="p_email" value="<?php echo $row2['p_email']; ?>">
+                                <input type="text" name="s_user" value="<?php echo $row2['s_user']; ?>">
                             </div>
                             <!-- แถบใส่ข้อมูลปกติ -->
                             <div class="row mb-2 dr">

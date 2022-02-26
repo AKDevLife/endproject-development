@@ -16,7 +16,7 @@
             $ylables =[];
             $c_fetch = new DB_con();
             $eq_fetch = new DB_con();
-            $chart = $c_fetch->eq_borrow_CMY_fetch(4,date("Y"));
+            $chart = $c_fetch->eq_borrow_CMY_fetch(8,date("Y"));
             $x=0;
                 foreach($chart as $c)
                  {

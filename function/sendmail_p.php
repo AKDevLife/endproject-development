@@ -4,6 +4,7 @@ session_start();
 $s_firstname = $_SESSION['s_firstname'];
 $s_lastname = $_SESSION['s_lastname'];
 $p_email = $_SESSION['p_email'];
+$s_user = $_SESSION['s_user'];
 
 header('Content-Type: text/html; charset=utf-8');
 

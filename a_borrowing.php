@@ -117,15 +117,19 @@
                                     $schedule = $sql5['ToDate'];
                                     $today = date("Y-m-d");
                                     // นำค่าของวันที่ต้องคืน มาทำการคำนวณ(ลบ)กับค่าของวันนี้   
-                                    $duration_day = $eq6->duration_day($schedule,$today);
+                                    $duration_day = $eq6->duration_day($schedule, $today);
                                     // เช็คค่าที่ได้ ถ้ามากกว่า 0 แสดงว่ายังเหลือวันให้ยืม เท่ากับ 0 คือต้องคืนวันนี้ น้อยกว่า 0 คือเลยกำหนดคืน
                                     if ($duration_day >= 0) { ?>
-                                        <td><div class="bb">กำลังยืม</div></td>
+                                        <td>
+                                            <div class="bb">กำลังยืม</div>
+                                        </td>
                                     <?php }
                                     if ($duration_day < 0) { ?>
-                                        <td><div class="rb">เลยกำหนดคืน</div></td>
+                                        <td>
+                                            <div class="rb">เลยกำหนดคืน</div>
+                                        </td>
                                     <?php } ?>
-                                    <td><a class="gb" href="function/.php?ap=1&borrow_id=<?php echo $sql1['borrow_id']; ?>&se=<?php echo $sql2['s_email']; ?>">คืนแล้ว</a></td>
+                                    <td><a class="gb" href="function/return_a.php?ap=1&borrow_id=<?php echo $sql1['borrow_id']; ?>&se=<?php echo $sql2['s_email']; ?>">คืนแล้ว</a></td>
                                 </tr>
                             <?php
                                 $i = $i + 1;

@@ -306,6 +306,14 @@ class DB_con
             WHERE borrow_id = '$borrow_id' AND Status = '4'");
         return $result;
     }
+    //ฟังก์ชั่นอัปเดตสเตตัสการยืม คืนอุปกรณ์แล้ว
+    public function borrow_status_6_8($borrow_id)
+    {
+        $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow SET
+            Status = '8'
+            WHERE borrow_id = '$borrow_id' AND Status = '6'");
+        return $result;
+    }
 
 //? ******************************  ฟังก์ชั่น การลบข้อมูล ***************************************************
     //ฟังก์ชันลบข้อมูลอุปกรณ์

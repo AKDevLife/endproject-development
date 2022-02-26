@@ -129,7 +129,7 @@
                                             <div class="rb">เลยกำหนดคืน</div>
                                         </td>
                                     <?php } ?>
-                                    <td><a class="gb" href="function/return_a.php?ap=1&borrow_id=<?php echo $sql1['borrow_id']; ?>&se=<?php echo $sql2['s_email']; ?>">คืนแล้ว</a></td>
+                                    <td><a class="gb" href="function/return_a.php?borrow_id=<?php echo $sql1['borrow_id']; ?>">คืนแล้ว</a></td>
                                 </tr>
                             <?php
                                 $i = $i + 1;

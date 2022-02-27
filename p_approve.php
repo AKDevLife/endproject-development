@@ -29,6 +29,7 @@
                     <table class="table table-striped table-bordered table-responsive">
                         <thead>
                             <tr>
+                                <th>รหัสการยืม</th>
                                 <th>รหัสประจำตัว</th>
                                 <th>ผู้ยื่นคำร้อง</th>
                                 <th>&nbsp;</th>
@@ -56,6 +57,7 @@
                             while ($sql2 = mysqli_fetch_array($eq_borrow_1_fetch)) {
                             ?>
                                 <tr>
+                                    <td><?php echo $sql2['borrow_id']; ?></td>
                                     <td><?php echo $sql2['s_user']; ?></td>
                                     <td><?php echo $sql1['s_firstname']; ?> <?php echo $sql1['s_lastname']; ?></td>
                                     <td>

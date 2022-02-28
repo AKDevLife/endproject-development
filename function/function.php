@@ -166,10 +166,16 @@ class DB_con
         $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '4' GROUP BY borrow_id ORDER BY id");
         return $result;
     }
-    //ฟังก์ชั่นอ่านข้อมูลตารางการยืมโดยแสดงเฉพาะที่สถานะเป็น 4 คืออ.หัวหน้า ผ่าน
+    //ฟังก์ชั่นอ่านข้อมูลตารางการยืมโดยแสดงเฉพาะที่สถานะเป็น 6 มารับอุปกรณ์แล้ว
     public function eq_borrow_6_fetch()
     {
         $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '6' GROUP BY borrow_id ORDER BY id");
+        return $result;
+    }
+    //ฟังก์ชั่นอ่านข้อมูลตารางการยืมของหน้าประวัติการยืม
+    public function eq_borrow_a_history()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '3' OR Status = '5' OR Status = '7' OR Status = '8' OR Status = '9'  GROUP BY borrow_id ORDER BY id");
         return $result;
     }
 

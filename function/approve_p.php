@@ -3,7 +3,7 @@
     session_start();
     $approve = new DB_con();
     $noapprove = new DB_con();
-
+    
     $borrow_id = $_GET['borrow_id'];
 
 // ถ้าapเท่ากับ1 แสดงว่ากดผ่าน ให้เปล่ยนค่าStatusเป็น4

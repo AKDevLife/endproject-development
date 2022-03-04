@@ -111,11 +111,23 @@
                                         </div>
                                     </td>
                                     <!-- เมื่อกดปุ่มไม่ผ่านทำการส่ง 0.ค่าตรวจสอบap=2 1.รหัสการยืม -->
-                                    <td>
-                                        <div class="dropdown">
+                                    <td><div class="dropdown1">
                                             <button class="rb">ไม่ผ่าน</button>
                                             <div class="dropdown-content">
-                                                <a href="#">กลับไปแก้ไข</a>
+                                                <a href="#popup">แก้ไขรายการ</a>
+                                                    <div id="popup" class="overlay">
+                                                        <div class="popup">
+                                                            <h2>เหตุผลในการแก้ไข</h2><hr class="s1">
+                                                            <a class="close" href="e_approve.php">&times;</a>
+                                                            <form action="function/approve_e_edit.php" method="POST">
+                                                                <label></label>
+                                                                <input type="text" name="reason" size="30" placeholder="กรอกเหตุผล.." require>
+                                                                <input type="hidden" name="borrow_id" value="<?php echo $sql1['borrow_id']; ?>">
+                                                                <input type="hidden" name="s_email" value="<?php echo $sql2['s_email']; ?>">
+                                                                <button class="gb" type="submit">ยืนยัน</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 <a href="function/approve_e.php?ap=2&borrow_id=<?php echo $sql1['borrow_id']; ?>&se=<?php echo $sql2['s_email']; ?>">ไม่ผ่าน</a>
                                             </div>
                                         </div>

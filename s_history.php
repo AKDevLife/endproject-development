@@ -34,6 +34,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th>รหัสการยืม</th>
                                     <th>วันที่ทำรายการ</th>
                                     <th>คำร้องขอ</th>
                                     <th>สถานะ</th>
@@ -53,6 +54,7 @@
                                 while ($sql1 = mysqli_fetch_array($eq_p_borrow)) {
                                 ?>
                                     <tr>
+                                        <td><?php echo $sql1['borrow_id']; ?></td>
                                         <td><?php echo $sql1['DateTime']; ?></td>
                                         <td>
                                             <a class="bb2" href="#popup<?php echo $i; ?>">รายละเอียด</a>
@@ -137,6 +139,13 @@
                                             <td>
                                                 <div class="gb">
                                                     คืนอุปกรณ์เรียบร้อย
+                                                </div>
+                                            </td>
+                                            <?php }
+                                        if ($sql1['Status'] == 10) { ?>
+                                            <td>
+                                                <div class="ob">
+                                                    แก้ไขใหม่
                                                 </div>
                                             </td>
                                             <?php } ?>

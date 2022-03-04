@@ -84,6 +84,18 @@ border-top: 2px solid rgb(255, 166, 0);
     margin: 4px 2px;
     border-radius: 12px;
 }
+.ob{
+    background-color: orange; /* orage */
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
+}
 .menu{
     display: flex;
     width: 100%;

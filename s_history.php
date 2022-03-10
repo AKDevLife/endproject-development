@@ -76,17 +76,17 @@
                                                             </thead>
                                                             <tbody>
                                                                 <?php
-                                                                    $borrow_id = $sql1['borrow_id'];
-                                                                    $suser = $eq2->eq_borrow_id_fetch($borrow_id);
-                                                                    while ($sql2 = mysqli_fetch_array($suser)) {
-                                                                        ?>
-                                                                        <tr>
+                                                                $borrow_id = $sql1['borrow_id'];
+                                                                $suser = $eq2->eq_borrow_id_fetch($borrow_id);
+                                                                while ($sql2 = mysqli_fetch_array($suser)) {
+                                                                ?>
+                                                                    <tr>
                                                                         <?php
                                                                         $eq_id = $sql2['eq_id'];
                                                                         $eq_name = $eq1->eq_id_fetch($eq_id);
                                                                         while ($sql3 = mysqli_fetch_array($eq_name)) { ?>
                                                                             <td><?php echo $sql3['eq_name']; ?></td>
-                                                                            <?php
+                                                                        <?php
                                                                             $i = $i + 1;
                                                                         }
                                                                         ?>
@@ -94,11 +94,11 @@
                                                                         <td><?php echo $sql2['FromDate']; ?></td>
                                                                         <td><?php echo $sql2['ToDate']; ?></td>
                                                                         <td><?php echo $sql2['Descriptions']; ?></td>
-                                                                        </tr>
-                                                                    <?php
-                                                                        $i = $i + 1;
-                                                                    }
-                                                                    ?>
+                                                                    </tr>
+                                                                <?php
+                                                                    $i = $i + 1;
+                                                                }
+                                                                ?>
                                                             </tbody>
                                                             <tbody>
                                                         </table>
@@ -113,44 +113,97 @@
                                                     รอการอนุมัติ
                                                 </div>
                                             </td>
-                                            <?php }
+                                        <?php }
                                         if ($sql1['Status'] == 3 || $sql1['Status'] == 5) { ?>
                                             <td>
                                                 <div class="rb">
                                                     ไม่ได้รับการอนุมัติ
                                                 </div>
                                             </td>
-                                            <?php }  
+                                        <?php }
                                         if ($sql1['Status'] == 4) { ?>
                                             <td>
                                                 <div class="gb">
                                                     ได้รับการอนุมัติ
                                                 </div>
                                             </td>
-                                            <?php }
+                                        <?php }
                                         if ($sql1['Status'] == 6) { ?>
                                             <td>
                                                 <div class="bb">
                                                     กำลังยืมอุปกรณ์
                                                 </div>
                                             </td>
-                                            <?php }
+                                        <?php }
                                         if ($sql1['Status'] == 8) { ?>
                                             <td>
                                                 <div class="gb">
                                                     คืนอุปกรณ์เรียบร้อย
                                                 </div>
                                             </td>
-                                            <?php }
+                                        <?php }
                                         if ($sql1['Status'] == 10) { ?>
                                             <td>
-                                                <div class="ob">
-                                                    แก้ไขใหม่
+                                                <div class="dropdown1">
+                                                    <button class="ob">แก้ไขใหม่</button>
+                                                    <div class="dropdown-content">
+                                                        <a href="#popup">แก้ไขรายการ</a>
+                                                        <div id="popup" class="overlay">
+                                                            <div class="popup">
+                                                                <h3>รายการอุปกรณ์</h3>
+                                                                <hr class="s1">
+                                                                <a class="close" href="s_history.php">&times;</a>
+                                                                <table class="table table-striped table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>ชื่ออุปกรณ์</th>
+                                                                            <th>จำนวนที่ยืม</th>
+                                                                            <th>วันที่ยืม</th>
+                                                                            <th>ถึงวันที่</th>
+                                                                            <th>&nbsp;</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                        $borrow_id = $sql1['borrow_id'];
+                                                                        $suser = $eq2->eq_borrow_id_fetch($borrow_id);
+                                                                        while ($sql2 = mysqli_fetch_array($suser)) {
+                                                                        ?>
+                                                                            <tr>
+                                                                                <?php
+                                                                                $eq_id = $sql2['eq_id'];
+                                                                                $eq_name = $eq1->eq_id_fetch($eq_id);
+                                                                                $sql3 = mysqli_fetch_array($eq_name);
+                                                                                ?>
+                                                                                <td><?php echo $sql3['eq_name']; ?></td>
+                                                                                <td><?php echo $sql2['eq_number']; ?></td>
+                                                                                <td><?php echo $sql2['FromDate']; ?></td>
+                                                                                <td><?php echo $sql2['ToDate']; ?></td>
+                                                                                <td><a href="function/edit_delete.php?borrow_id=<?php echo $sql2['borrow_id']; ?>&eq_id=<?php echo $sql2['eq_id']; ?>&eq_number=<?php echo $sql2['eq_number']; ?>" class="btn btn-danger" style="padding: 3px;" onclick="return confirm('ยืนยันว่า จะเอาอุปกรณ์นี้ออก ไม่สามารถแก้คืนได้')">ลบ</a></td>
+                                                                            </tr>
+                                                                        <?php
+                                                                            $i = $i + 1;
+                                                                        }
+                                                                        ?>
+                                                                    </tbody>
+                                                                    <tr>
+                                                                        <td colspan="5" align="right">
+                                                                            <input type="hidden" name='loop' value=#>
+                                                                            <button type="submit" name='s_borrow' class="button" style="float :right">ส่งคำขอยืม</button>
+                                                                            <a class="btn btn-info" style="float :right" href="">ยกเลิกการยืม</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
+
                                             </td>
-                                            <?php } ?>
-                                        </tr>
-                                        <?php
+                                        <?php } ?>
+                                    </tr>
+                                <?php
                                     $i = $i + 1;
                                 }
                                 ?>

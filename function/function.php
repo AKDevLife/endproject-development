@@ -102,6 +102,12 @@ class DB_con
         $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, a.eq_total, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE a.eq_typeid=b.eq_typeid AND a.eq_id='$eq_id'");
         return $result;
     }
+    //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ทั้งหมดตาม eq_name
+    public function eq_name_fetch($eq_name)
+    {
+        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, a.eq_total, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE a.eq_typeid=b.eq_typeid AND a.eq_name='$eq_name'");
+        return $result;
+    }
     //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์เฉพาะรูปตาม id
     public function eq_id_image_fetch($eq_id)
     {
@@ -235,6 +241,15 @@ class DB_con
             WHERE eq_id = '$eq_id'");
         return $result;
     }
+    //ฟังก์ชั่นอัพเดทจำนวนอุปกรณ์ตามรหัสอุปกรณ์และชื่อของอุปกรณ์
+    public function edit_update($eq_id,$eq_number)
+    {
+        $result = mysqli_query($this->dbcon, "UPDATE tb_equipment SET
+            eq_remain = '$eq_number'+eq_remain
+            WHERE eq_id = '$eq_id'");
+        return $result;
+        
+    }
 
 //? ******************************  ฟังก์ชั่น อัปเดตข้อมูลนักศึกษา ******************************************
     //ฟังก์ชั่นอัปเดตข้อมูลนักศึกษาแบบมีรูป
@@ -344,7 +359,13 @@ class DB_con
         $result = mysqli_query($this->dbcon, "DELETE FROM tb_equipment WHERE eq_id = '$eq_id'");
         return $result;
     }
-
+    
+    //ฟังก์ชั่นลบอุปกรณ์ตามรหัสอุปกรณ์และชื่อของอุปกรณ์
+    public function edit_delete($borrow_id, $eq_id)
+    {
+        $result = mysqli_query($this->dbcon, "DELETE FROM tb_eq_borrow WHERE borrow_id = '$borrow_id' AND eq_id = '$eq_id'");
+        return $result;
+    }
 //? ******************************  ฟังก์ชั่น ทำกราฟ ******************************************
     //ฟังก์ชั่นการอ่านข้อมูลตาราง eq_borrow ตาม Status และเรียง ตามจำนวนจากมากไปน้อย 6 อันดับแรกเดือน
     public function eq_borrow_CMM_fetch($Status, $MY)
@@ -363,6 +384,33 @@ class DB_con
         $remain=intval(strtotime($schedule)-strtotime($today));
         $day=floor($remain/86400);
         return $day;
+    }
+
+//? ******************************  ฟังก์ชั่น reset password ******************************************
+    //ฟังก์ชันหารหัสกับอีเมลที่ตรงกับอีเมล
+    public function reset_password($email)
+    {
+        $result = mysqli_query($this->dbcon, "SELECT s_email,s_password FROM tb_student WHERE s_email ='$email'");
+        return $result;
+    }
+    //ฟังก์ชันหารหัสกับอีเมลที่ตรงกับอีเมลและรหัสของอีเมลนั้น
+    public function reset_password2($email,$pass)
+    {
+        $result = mysqli_query($this->dbcon, "SELECT s_email,s_password FROM tb_student WHERE s_email='$email' and s_password='$pass'");
+        return $result;
+    }
+    //ฟังก์ชันเปลี่นรหัส
+    public function update_password($email,$pass)
+    {
+        $result = mysqli_query($this->dbcon, "UPDATE tb_student set s_password='$pass' WHERE s_email='$email'");
+        return $result;
+    }
+    
+//? ******************************  ฟังก์ชั่นดึงข้อมูลคนเลยกำหนดคืน ******************************************
+    public function eq_borrow_LR_fetch($Status, $dr)
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '$Status' AND DATE_FORMAT(ToDate,'%Y-%m-%d') < '$dr' GROUP BY borrow_id ORDER BY id");
+        return $result;
     }
 
 }

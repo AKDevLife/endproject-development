@@ -22,7 +22,7 @@
         <button type="submit" id="login" name="login" class="btn">เข้าสู่ระบบ</button>
         <p class="text">ต้องการสร้างบัญชีหรือไม่?</p>
         <a href="register_form.php">สร้างบัญชีใหม่</a>
-        <a href="#">ลืมรหัส</a>
+        <a href="s_forgot.php">ลืมรหัส</a>
       </form>
     </div>
     

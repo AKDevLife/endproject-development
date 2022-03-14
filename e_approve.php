@@ -24,7 +24,7 @@
             </aside>
             <main class="form">
                 <div class="box">
-                    <h2>คำร้อง</h2>
+                    <h2>คำร้องขอยืมอุปกรณ์</h2>
                     <hr class="s1">
                     <table class="table table-striped table-bordered table-responsive">
                         <thead>

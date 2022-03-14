@@ -303,14 +303,6 @@ class DB_con
             WHERE borrow_id = '$borrow_id' AND Status = '1'");
         return $result;
     }
-    //ฟังก์ชั่นอัปเดตสเตตัสการยืม อ.ที่ปรึกษา ให้กลับไปแก้ไข
-    public function borrow_status_1_10($borrow_id)
-    {
-        $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow SET
-            Status = '10'
-            WHERE borrow_id = '$borrow_id' AND Status = '1'");
-        return $result;
-    }
     //ฟังก์ชั่นอัปเดตสเตตัสการยืม อ.หัวหน้าอนุมัติ ผ่าน
     public function borrow_status_2_4($borrow_id)
     {
@@ -349,6 +341,22 @@ class DB_con
         $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow SET
             Status = '8'
             WHERE borrow_id = '$borrow_id' AND Status = '6'");
+        return $result;
+    }
+    //ฟังก์ชั่นอัปเดตสเตตัสการยืม แก้ไขอุปกรณ์ส่งกลับไปหาendoser
+    public function borrow_status_10_2($borrow_id)
+    {
+        $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow SET
+            Status = '2'
+            WHERE borrow_id = '$borrow_id' AND Status = '10'");
+        return $result;
+    }
+    //ฟังก์ชั่นอัปเดตสเตตัสการยืม ยกเลิกการการยืม
+    public function borrow_status_10_11($borrow_id)
+    {
+        $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow SET
+            Status = '11'
+            WHERE borrow_id = '$borrow_id' AND Status = '10'");
         return $result;
     }
 

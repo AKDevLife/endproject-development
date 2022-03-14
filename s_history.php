@@ -188,9 +188,8 @@
                                                                     </tbody>
                                                                     <tr>
                                                                         <td colspan="5" align="right">
-                                                                            <input type="hidden" name='loop' value=#>
-                                                                            <button type="submit" name='s_borrow' class="button" style="float :right">ส่งคำขอยืม</button>
-                                                                            <a class="btn btn-info" style="float :right" href="">ยกเลิกการยืม</a>
+                                                                            <a class="btn btn-warning mx-1" style="float :right" href="function/edit_send_e.php?borrow_id=<?php echo $sql1['borrow_id']; ?>&s_user=<?php echo $sql1['s_user']; ?>">ส่งคำร้องอีกครั้ง</a>
+                                                                            <a class="btn btn-info" style="float :right" href="function/edit_cancel.php?borrow_id=<?php echo $sql1['borrow_id']; ?>">ยกเลิกการยืม</a>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -200,6 +199,20 @@
                                                 </div>
 
 
+                                            </td>
+                                        <?php } 
+                                        if ($sql1['Status'] == 7 || $sql1['Status'] == 9) { ?>
+                                            <td>
+                                                <div class="rb">
+                                                    ถูกยกเลิก
+                                                </div>
+                                            </td>
+                                        <?php } 
+                                        if ($sql1['Status'] == 11) { ?>
+                                            <td>
+                                                <div class="rb">
+                                                    ยกเลิกด้วยตัวเอง
+                                                </div>
                                             </td>
                                         <?php } ?>
                                     </tr>

@@ -87,7 +87,7 @@ class DB_con
     //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ทั้งหมด
     public function eq_fetch()
     {
-        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE a.eq_typeid=b.eq_typeid");
+        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE a.eq_typeid=b.eq_typeid AND a.eq_remain > 0");
         return $result;
     }
     //ฟังก์ชั่นการอ่านข้อมูลหมวดหมู่อุปกรณ์
@@ -125,13 +125,13 @@ class DB_con
     //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ตามชนิด
     public function eq_t_fetch($typeid)
     {
-        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE $typeid=a.eq_typeid AND $typeid=b.eq_typeid");
+        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE $typeid=a.eq_typeid AND $typeid=b.eq_typeid AND a.eq_remain > 0");
         return $result;
     }
     //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ตามชื่อ
     public function eq_s_fetch($n)
     {
-        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE eq_name LIKE '%$n%'AND a.eq_typeid=b.eq_typeid");
+        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE eq_name LIKE '%$n%'AND a.eq_typeid=b.eq_typeid AND a.eq_remain > 0");
         return $result;
     }
 

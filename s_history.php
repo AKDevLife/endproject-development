@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +46,6 @@
                             <tbody>
                                 <?php
                                 include_once('function/function.php');
-                                session_start();
                                 $s_user = $_SESSION['s_user'];
                                 $eq = new DB_con();
                                 $eq1 = new DB_con();

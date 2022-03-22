@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +25,6 @@
             </aside>
             <?php 
                 include_once('function/function.php');
-                session_start();
                 $_SESSION['eq_id'] = $_GET['eq_id'];
                 $eq_id_fetch = new DB_con();
                 $eq_id = $_SESSION['eq_id'];

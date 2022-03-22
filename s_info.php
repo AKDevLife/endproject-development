@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +18,6 @@
     <div class="container-fluid">
 
         <?php
-            session_start();
             include "item/pageheader.php";  
             include "function/function.php";
             $s_id=$_SESSION['s_id'];

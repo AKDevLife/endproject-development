@@ -55,7 +55,7 @@ session_start();
                 </div>
                 <?php
                 $fetchdata = new DB_con();
-                $sql = $fetchdata->eq_fetch();
+                $sql = $fetchdata->eq_fetch_student();
                 $i = 1;
                 while ($row = mysqli_fetch_array($sql)) {
                 ?>

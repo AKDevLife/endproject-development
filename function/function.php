@@ -87,6 +87,12 @@ class DB_con
     //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ทั้งหมด
     public function eq_fetch()
     {
+        $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE a.eq_typeid=b.eq_typeid");
+        return $result;
+    }
+    //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ทั้งหมดยกเว้นอุปกรณ์ที่เป็น remain 0
+    public function eq_fetch_student()
+    {
         $result = mysqli_query($this->dbcon, "SELECT a.eq_id, a.eq_name, a.eq_descriptions, a.eq_image, a.eq_remain, b.eq_typeid, b.eq_typename FROM tb_equipment a, tb_eq_type b WHERE a.eq_typeid=b.eq_typeid AND a.eq_remain > 0");
         return $result;
     }

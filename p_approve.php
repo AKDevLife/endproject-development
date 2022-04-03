@@ -51,7 +51,7 @@ session_start();
 
                             //หารหัสนักศึกษาตามอ.ที่ปรึกษา 
                             $s_user_p_id_fetch = $eq2->s_user_p_id_fetch($p_id);
-                            $sql1 = mysqli_fetch_array($s_user_p_id_fetch);
+                            while ($sql1 = mysqli_fetch_array($s_user_p_id_fetch)) {
                             // นำรหัสนักศึกษาที่มี Status1 เข้าไปหาในตาราง tb_eq_borrow
                             $s_user = $sql1['s_user'];
                             $eq_borrow_1_fetch = $eq2->eq_borrow_1_fetch($s_user);
@@ -119,6 +119,7 @@ session_start();
                                 </tr>
                             <?php
                                 $i = $i + 1;
+                            }
                             }
                             ?>
                         </tbody>

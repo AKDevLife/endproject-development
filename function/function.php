@@ -19,7 +19,7 @@ class DB_con
         }
     }
 
-//? ******************************  ฟังก์ชั่น ล็อกอิน ******************************************
+    //? ******************************  ฟังก์ชั่น ล็อกอิน ******************************************
     //ฟังก์ชั่น login_Admin
     public function a_login($User, $Password)
     {
@@ -44,8 +44,8 @@ class DB_con
         $result = mysqli_query($this->dbcon, "SELECT s_id, s_user FROM tb_student WHERE s_user = '$User' AND s_password = '$Password'");
         return $result;
     }
-    
-//? ******************************  ฟังก์ชั่น เพิ่มข้อมูล ******************************************
+
+    //? ******************************  ฟังก์ชั่น เพิ่มข้อมูล ******************************************
     //ฟังก์ชั่น Insert_Admin 
     public function admin_insert($a_user, $a_password, $a_firstname, $a_lastname, $a_email)
     {
@@ -65,7 +65,7 @@ class DB_con
         return $result;
     }
     //ฟังก์ชั่น Insert_Student
-    public function student_insert($s_user, $s_password, $s_firstname, $s_lastname, $s_phone, $s_email , $s_image, $p_id)
+    public function student_insert($s_user, $s_password, $s_firstname, $s_lastname, $s_phone, $s_email, $s_image, $p_id)
     {
         $result = mysqli_query($this->dbcon, "INSERT INTO tb_student(s_user, s_password, s_firstname, s_lastname, s_phone, s_email , s_image, p_id) VALUES('$s_user', '$s_password', '$s_firstname', '$s_lastname', '$s_phone', '$s_email', '$s_image', '$p_id')");
         return $result;
@@ -77,13 +77,13 @@ class DB_con
         return $result;
     }
     //ฟังก์ชั่น Insert_Equipment_borrow 
-    public function eq_borrow_insert($borrow_id, $s_user, $eq_id , $eq_number, $FromDate, $ToDate, $Descriptions)
+    public function eq_borrow_insert($borrow_id, $s_user, $eq_id, $eq_number, $FromDate, $ToDate, $Descriptions)
     {
         $result = mysqli_query($this->dbcon, "INSERT INTO tb_eq_borrow(borrow_id, s_user, eq_id, eq_number, FromDate, ToDate, Descriptions ) VALUES('$borrow_id','$s_user','$eq_id', '$eq_number', '$FromDate', '$ToDate', '$Descriptions')");
         return $result;
     }
-    
-//? ******************************  ฟังก์ชั่น อ่านข้อมูล ******************************************
+
+    //? ******************************  ฟังก์ชั่น อ่านข้อมูล ******************************************
     //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ทั้งหมด
     public function eq_fetch()
     {
@@ -127,7 +127,7 @@ class DB_con
         return $result;
     }
 
-//? ******************************  ฟังก์ชัน ค้นหาอุปกรณ์ ******************************************
+    //? ******************************  ฟังก์ชัน ค้นหาอุปกรณ์ ******************************************
     //ฟังก์ชั่นการอ่านข้อมูลอุปกรณ์ตามชนิด
     public function eq_t_fetch($typeid)
     {
@@ -141,7 +141,7 @@ class DB_con
         return $result;
     }
 
-//? ******************************  ฟังก์ชั่น อ่านข้อมูลตารางการยืม ******************************************
+    //? ******************************  ฟังก์ชั่น อ่านข้อมูลตารางการยืม ******************************************
     //ฟังก์ชั่นการอ่านข้อมูลตาราง eq_borrow ตามรหัสนักศึกษา และเรียง Status จากน้อยไปมาก 
     public function eq_borrow_suser_fetch($s_user)
     {
@@ -191,7 +191,7 @@ class DB_con
         return $result;
     }
 
-//? ******************************  ฟังก์ชั่น อ่านข้อมูลตาราง อ.ที่ปรึกษา ***************************************
+    //? ******************************  ฟังก์ชั่น อ่านข้อมูลตาราง อ.ที่ปรึกษา ***************************************
     //ฟังก์ชั่นการอ่านข้อมูลตาราง tb_professor ทั้งหมด
     public function p_id_fetch()
     {
@@ -199,7 +199,7 @@ class DB_con
         return $result;
     }
 
-//? ******************************  ฟังก์ชั่น อ่านข้อมูลตาราง นักศึกษา ******************************************
+    //? ******************************  ฟังก์ชั่น อ่านข้อมูลตาราง นักศึกษา ******************************************
     //ฟังก์ชันหารหัสนักศึกษาตามอ.ที่ปรึกษา
     public function s_user_p_id_fetch($p_id)
     {
@@ -213,7 +213,7 @@ class DB_con
         return $result;
     }
 
-//? ******************************  ฟังก์ชั่น อัปเดตข้อมูลอุปกรณ์ ******************************************
+    //? ******************************  ฟังก์ชั่น อัปเดตข้อมูลอุปกรณ์ ******************************************
     //ฟังก์ชั่นอัปเดตข้อมูลอุปกรณ์แบบไม่มีรูป
     public function eq_update($eq_name, $eq_typeid, $eq_descriptions, $eq_remain, $eq_total, $eq_id)
     {
@@ -240,7 +240,7 @@ class DB_con
         return $result;
     }
     //ฟังก์ชั่นอัปเดตข้อมูลจำนวนคงเหลืออุปกรณ์
-    public function eq_update_remain($eq_remain,$eq_id)
+    public function eq_update_remain($eq_remain, $eq_id)
     {
         $result = mysqli_query($this->dbcon, "UPDATE tb_equipment SET
             eq_remain = '$eq_remain'
@@ -248,16 +248,15 @@ class DB_con
         return $result;
     }
     //ฟังก์ชั่นอัพเดทจำนวนอุปกรณ์ตามรหัสอุปกรณ์และชื่อของอุปกรณ์
-    public function edit_update($eq_id,$eq_number)
+    public function edit_update($eq_id, $eq_number)
     {
         $result = mysqli_query($this->dbcon, "UPDATE tb_equipment SET
             eq_remain = '$eq_number'+eq_remain
             WHERE eq_id = '$eq_id'");
         return $result;
-        
     }
 
-//? ******************************  ฟังก์ชั่น อัปเดตข้อมูลนักศึกษา ******************************************
+    //? ******************************  ฟังก์ชั่น อัปเดตข้อมูลนักศึกษา ******************************************
     //ฟังก์ชั่นอัปเดตข้อมูลนักศึกษาแบบมีรูป
     public function s_update_image($s_firstname, $s_lastname, $s_user, $s_phone, $s_email, $s_image, $s_id)
     {
@@ -292,7 +291,7 @@ class DB_con
         return $result;
     }
 
-//? ******************************  ฟังก์ชั่น อัปเดตสถานะของการยืม ******************************************
+    //? ******************************  ฟังก์ชั่น อัปเดตสถานะของการยืม ******************************************
     //ฟังก์ชั่นอัปเดตสเตตัสการยืม อ.ที่ปรึกษาอนุมัติ ผ่าน
     public function borrow_status_1_2($borrow_id)
     {
@@ -366,21 +365,21 @@ class DB_con
         return $result;
     }
 
-//? ******************************  ฟังก์ชั่น การลบข้อมูล ***************************************************
+    //? ******************************  ฟังก์ชั่น การลบข้อมูล ***************************************************
     //ฟังก์ชันลบข้อมูลอุปกรณ์
     public function eq_delete($eq_id)
     {
         $result = mysqli_query($this->dbcon, "DELETE FROM tb_equipment WHERE eq_id = '$eq_id'");
         return $result;
     }
-    
+
     //ฟังก์ชั่นลบอุปกรณ์ตามรหัสอุปกรณ์และชื่อของอุปกรณ์
     public function edit_delete($borrow_id, $eq_id)
     {
         $result = mysqli_query($this->dbcon, "DELETE FROM tb_eq_borrow WHERE borrow_id = '$borrow_id' AND eq_id = '$eq_id'");
         return $result;
     }
-//? ******************************  ฟังก์ชั่น ทำกราฟ ******************************************
+    //? ******************************  ฟังก์ชั่น ทำกราฟ ******************************************
     //ฟังก์ชั่นการอ่านข้อมูลตาราง eq_borrow ตาม Status และเรียง ตามจำนวนจากมากไปน้อย 6 อันดับแรกเดือน
     public function eq_borrow_CMM_fetch($Status, $MY)
     {
@@ -394,13 +393,14 @@ class DB_con
         return $result;
     }
     // ฟังก์ชันการหาผลต่างของวัน
-    public function duration_day($schedule,$today){
-        $remain=intval(strtotime($schedule)-strtotime($today));
-        $day=floor($remain/86400);
+    public function duration_day($schedule, $today)
+    {
+        $remain = intval(strtotime($schedule) - strtotime($today));
+        $day = floor($remain / 86400);
         return $day;
     }
 
-//? ******************************  ฟังก์ชั่น reset password ******************************************
+    //? ******************************  ฟังก์ชั่น reset password ******************************************
     //ฟังก์ชันหารหัสกับอีเมลที่ตรงกับอีเมล
     public function reset_password($email)
     {
@@ -408,25 +408,43 @@ class DB_con
         return $result;
     }
     //ฟังก์ชันหารหัสกับอีเมลที่ตรงกับอีเมลและรหัสของอีเมลนั้น
-    public function reset_password2($email,$pass)
+    public function reset_password2($email, $pass)
     {
         $result = mysqli_query($this->dbcon, "SELECT s_email,s_password FROM tb_student WHERE s_email='$email' and s_password='$pass'");
         return $result;
     }
     //ฟังก์ชันเปลี่นรหัส
-    public function update_password($email,$pass)
+    public function update_password($email, $pass)
     {
         $result = mysqli_query($this->dbcon, "UPDATE tb_student set s_password='$pass' WHERE s_email='$email'");
         return $result;
     }
-    
-//? ******************************  ฟังก์ชั่นดึงข้อมูลคนเลยกำหนดคืน ******************************************
+
+    //? ******************************  ฟังก์ชั่นดึงข้อมูลคนเลยกำหนดคืน ******************************************
     public function eq_borrow_LR_fetch($Status, $dr)
     {
         $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '$Status' AND DATE_FORMAT(ToDate,'%Y-%m-%d') < '$dr' GROUP BY borrow_id ORDER BY id");
         return $result;
     }
-
+    //? ******************************  ฟังก์ชั่นดึงวัน +7 ******************************************
+    public function dayplus4()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT *,DATE_ADD(`FromDate`, interval 7 day) AS DateAdd FROM tb_eq_borrow WHERE Status = '4'  GROUP BY borrow_id ORDER BY id");
+        return $result;
+    }
+    public function update7($b_id)
+    {
+        $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow set Status='7' WHERE borrow_id='$b_id'");
+        return $result;
+    }
+    public function dayplus6()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT *,DATE_ADD(`ToDate`, interval 7 day) AS DateAdd FROM tb_eq_borrow WHERE Status = '6'  GROUP BY borrow_id ORDER BY id");
+        return $result;
+    }
+    public function update9($b_id)
+    {
+        $result = mysqli_query($this->dbcon, "UPDATE tb_eq_borrow set Status='9' WHERE borrow_id='$b_id'");
+        return $result;
+    }
 }
-?>
-

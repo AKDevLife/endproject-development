@@ -38,7 +38,7 @@
                         <label>เบอร์โทรติดต่อ</label><br>
                         <input type="text" name="s_phone" required><br>
                         <label for="email">E-mail</label><br>
-                        <input type="email" name="s_email" pattern=".+@su.ac.th" size="30" placeholder="@su.ac.th" required><br>
+                        <input type="email" name="s_email" pattern=".+@silpakorn.edu||.+@su.ac.th" size="30" placeholder="@silpakorn or @su.ac.th" title="รูปแบบอีเมลไม่ถูกต้อง" required><br>
                         <label>อาจารย์ที่ปรึกษา</label><br>
 
                         <select id="text_size" name="p_id">

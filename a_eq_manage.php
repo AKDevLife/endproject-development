@@ -25,27 +25,29 @@
                 <main style="background-color: #f2f2f2;">
 
                 <div class="container">
-                    <form class="row justify-content-end py-2" action="a_eq_manage.php" method="GET">
-                        <div class="btn-group col-2">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                หมวดหมู่อุปกรณ์
-                            </button>
-                            <ul class="dropdown-menu">
-                            <?php
-                                include_once('function/function.php');
-                                $eq_type_fetch = new DB_con();
-                                $sql = $eq_type_fetch->eq_type_fetch();
-                                $i = 1;
-                                while ($row = mysqli_fetch_array($sql)) {
-                            ?>
-                            <li><a class="dropdown-item" href="#"><?php echo $row['eq_typename']; ?></a></li>  
-                            <?php
-                                $i = $i + 1;
-                            }
-                            ?>
-                            </ul>
+                    <form class="row justify-content-end py-2" action="a_eq_manage_extra.php" method="GET">
+                    <div class="btn-group col-2 ">
+                            <select name="type" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <option value=11>--- หมวดหมู่อุปกรณ์ ---</option>
+                                <ul class="dropdown-menu">
+                                    <?php
+                                    include_once('function/function.php');
+                                    $eq_type_fetch = new DB_con();
+                                    $sql = $eq_type_fetch->eq_type_fetch();
+                                    $i = 1;
+                                    while ($row = mysqli_fetch_array($sql)) {
+                                    ?>
+                                        <li><a>
+                                                <option value=<?php echo $i ?>><?php echo $row['eq_typename']; ?>
+                                            </a></li>
+                                    <?php
+                                        $i = $i + 1;
+                                    }
+                                    ?>
+                                </ul>
+                            </select>
                         </div>
-                        <input class="col-3 mx-2" type="search" placeholder="Search" aria-label="Search" name="qt">
+                        <input class="col-3 mx-5" type="search" placeholder="Search" aria-label="Search" name="qt">
                         <button class="btn btn-success col-1 " type="submit">Search</button>
                     </form>
                 </div>

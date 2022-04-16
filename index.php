@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/login.css">
   </head>
   <body>
-<?php include "autochange.php"?>
+<?php include "function/autochange.php"?>
     <div class="container">
       <h1>เข้าสู่ระบบ</h1>
       <form class="form" action="function/checklogin.php" method="post">

@@ -1,5 +1,5 @@
 <?php
-include_once 'function\function.php';
+include_once 'function/function.php';
 date_default_timezone_set("Asia/Bangkok");
 $find_day = new DB_con();
 $check_day = new DB_con();

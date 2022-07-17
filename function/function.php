@@ -1,10 +1,10 @@
 <?php
-//กำหนดค่า server
+//กำหนดค่า server จริง นำรหัสผ่านจาก Hosting ที่ซื้อ
 define('DB_SERVER', 'localhost');
 define('DB_USER', 'electron_borrow');
 define('DB_PASS', 'H09IgNx83t');
 define('DB_NAME', 'electron_borrow');
-//กำหนดค่า server
+//กำหนดค่า server ทดสอบ
 // define('DB_SERVER', 'localhost');
 // define('DB_USER', 'root');
 // define('DB_PASS', '');

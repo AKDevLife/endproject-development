@@ -9,7 +9,7 @@ define('DB_NAME', 'electron_borrow');
 // define('DB_USER', 'root');
 // define('DB_PASS', '');
 // define('DB_NAME', 'end_project');
-error_reporting(E_ALL);
+// error_reporting(E_ALL);
 
 //สร้างคลาส ไว้เก็บฟังก์ชั่นที่ใช้กับฐานข้อมูล
 class DB_con

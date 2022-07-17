@@ -17,7 +17,7 @@ if ($_GET['ap'] == '1') {
         ?>
             <script>
                 alert("ดำเนินการสำเร็จ")
-                window.open("sendmail_e.php", "_self")
+                window.open("sendmail_e2.php", "_self")
             </script>
         
         <?php

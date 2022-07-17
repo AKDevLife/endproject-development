@@ -20,7 +20,7 @@ if ($sql1 && $sql2) {
 ?>
     <script>
         alert("ดำเนินการสำเร็จ")
-        window.open("sendmail_e_edit_s.php", "_self")
+        window.open("sendmail_e_edit_s2.php", "_self")
     </script>
 
 <?php

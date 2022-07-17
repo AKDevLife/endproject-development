@@ -91,13 +91,6 @@
                         $i = $i + 1;
                     }
                     ?>
-                    <div class="menu-footer">
-                        <ul class="dots">
-                            <li class="dots__item" id="active"></li>
-                            <li class="dots__item"></li>
-                            <li class="dots__item"></li>
-                        </ul>
-                    </div>
             </main>
         </div>
         <?php
@@ -125,13 +118,6 @@
                         $i = $i + 1;
                     }
         ?>
-        <div class="menu-footer">
-            <ul class="dots">
-                <li class="dots__item" id="active"></li>
-                <li class="dots__item"></li>
-                <li class="dots__item"></li>
-            </ul>
-        </div>
         </main>
     </div>
     <?php
@@ -159,13 +145,6 @@
                         $i = $i + 1;
                     }
     ?>
-    <div class="menu-footer">
-        <ul class="dots">
-            <li class="dots__item" id="active"></li>
-            <li class="dots__item"></li>
-            <li class="dots__item"></li>
-        </ul>
-    </div>
     </main>
     </div>
     <?php
@@ -193,23 +172,12 @@
                         $i = $i + 1;
                     }
     ?>
-    <div class="menu-footer">
-        <ul class="dots">
-            <li class="dots__item" id="active"></li>
-            <li class="dots__item"></li>
-            <li class="dots__item"></li>
-        </ul>
-    </div>
     </main>
     </div>
 <?php
                 }
                 include "item/footer.php";
 ?>
-</div>
-<div class="search-box">
-    <input type="text" autocomplete="off" placeholder="Search country..." />
-    <div class="result"></div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

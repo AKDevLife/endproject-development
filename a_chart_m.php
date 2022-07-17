@@ -22,7 +22,6 @@
             $eq_id = $c['eq_id'];
             $eq = $eq_fetch-> eq_id_fetch($eq_id);
             $row = mysqli_fetch_array($eq);
-
             $xlables[$x] = $row['eq_name'];
             $ylables[$x] = $c['eq_number'];
             
@@ -35,7 +34,7 @@
         type: 'bar',
         data: {
             labels: [<?php for($a=1;$a<=$x;$a++)
-            {echo $xlables[$a].',';
+            {echo '\''.$xlables[$a].'\''.',';
             }?>],
             datasets: [{
                 label: '# Number of equipment',

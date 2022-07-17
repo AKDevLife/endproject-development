@@ -35,7 +35,7 @@
         type: 'bar',
         data: {
             labels: [<?php for($a=1;$a<=$x;$a++)
-            {echo $xlables[$a].',';
+            {echo '\''.$xlables[$a].'\''.',';
             }?>],
             datasets: [{
                 label: '# Number of equipment',

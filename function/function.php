@@ -1,9 +1,15 @@
 <?php
 //กำหนดค่า server
 define('DB_SERVER', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'end_project');
+define('DB_USER', 'electron_borrow');
+define('DB_PASS', 'H09IgNx83t');
+define('DB_NAME', 'electron_borrow');
+//กำหนดค่า server
+// define('DB_SERVER', 'localhost');
+// define('DB_USER', 'root');
+// define('DB_PASS', '');
+// define('DB_NAME', 'end_project');
+error_reporting(E_ALL);
 
 //สร้างคลาส ไว้เก็บฟังก์ชั่นที่ใช้กับฐานข้อมูล
 class DB_con
@@ -188,6 +194,14 @@ class DB_con
     public function eq_borrow_a_history()
     {
         $result = mysqli_query($this->dbcon, "SELECT * FROM tb_eq_borrow WHERE Status = '3' OR Status = '5' OR Status = '7' OR Status = '8' OR Status = '9'  GROUP BY borrow_id ORDER BY id");
+        return $result;
+    }
+
+    //? ******************************  ฟังก์ชั่น อ่านข้อมูลตาราง อ.อนุมัติ ***************************************
+    //ฟังก์ชั่นการอ่านข้อมูลตาราง tb_professor ทั้งหมด
+    public function e_id_fetch()
+    {
+        $result = mysqli_query($this->dbcon, "SELECT * FROM tb_endoser");
         return $result;
     }
 

@@ -25,7 +25,7 @@
                 <div class="form">
                     <div class="box">
                     <h2>ลืมรหัสผ่าน</h2><hr class="s1">
-                    <form name="form1" method="post" action="function/sendmail_s_forget.php">
+                    <form name="form1" method="post" action="function/sendmail_s_forget2.php">
                         <p>กรอก E-mail ของนักศึกษา</p>
                         <input type="email" name="s_email" pattern=".+@silpakorn.edu" size="30" placeholder="@silpakorn.edu" required><br>
                         <br>

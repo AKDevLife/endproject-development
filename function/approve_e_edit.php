@@ -13,7 +13,7 @@
         ?>
             <script>
                 alert("ดำเนินการสำเร็จ")
-                window.open("sendmail_s_edit_e.php", "_self")
+                window.open("sendmail_s_edit_e2.php", "_self")
             </script>
         
         <?php

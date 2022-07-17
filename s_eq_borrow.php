@@ -77,13 +77,6 @@ session_start();
                     $i = $i + 1;
                 }
                 ?>
-                <div class="menu-footer">
-                    <ul class="dots">
-                        <li class="dots__item" id="active"></li>
-                        <li class="dots__item"></li>
-                        <li class="dots__item"></li>
-                    </ul>
-                </div>
             </main>
         </div>
         <?php

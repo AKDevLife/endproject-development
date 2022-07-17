@@ -57,7 +57,7 @@
         ?>
                 <script>
                     alert("ทำการยืมสำเร็จ")
-                    window.open("sendmail_p.php", "_self")
+                    window.open("sendmail_p2.php", "_self")
                 </script>
         
             <?php
